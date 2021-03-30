@@ -13,7 +13,7 @@ function App() {
 
   const search = event => {
     if(event.key === "Enter") {
-      fetch(`${weatherAPI.baseURL}weather?q=${query}&units=metrics&APPID=${weatherAPI.key}`)
+      fetch(`${weatherAPI.baseURL}weather?q=${query}&units=metric&APPID=${weatherAPI.key}`)
         .then(response => response.json())
         .then(result => {
           setWeather(result);
@@ -52,11 +52,11 @@ function App() {
         {(typeof weather.main != "undefined") ? (
         <div>
           <div className="location-box">
-            <div className="location">{weather.name} {weather.sys.country}</div>
+            <div className="location">{weather.name}, {weather.sys.country}</div>
             <div className="date">{dateBuilder(new Date())}</div>
           </div>
           <div className="weather-box">
-            <div className="temp">7°C</div>
+            <div className="temp">{Math.round(weather.main.temp)}°</div>
             <div className="weather">Cold</div>
           </div>
         </div>
