@@ -22,7 +22,7 @@ function App() {
         ?((weather.main.temp > 15)
           ? 'app-warm'
           : 'app')
-      :'app'}>
+      :'app-start'}>
       <main>
         <Search value={query} onChange={setQuery} onKeyPress={search}/>
         {(typeof weather.main != "undefined") ? (
